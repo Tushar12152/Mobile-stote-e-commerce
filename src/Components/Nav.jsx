@@ -1,4 +1,8 @@
-import { NavLink } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
+import { IoIosSearch } from "react-icons/io";
+import { CiHeart } from "react-icons/ci";
+import { LuShoppingCart } from "react-icons/lu";
+import { CiUser } from "react-icons/ci";
 
 
 const Nav = () => {
@@ -47,7 +51,17 @@ const Nav = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn">Button</a>
+      <div className=" flex gap-4">
+         <Link className="text-md" to='/'><IoIosSearch/></Link>
+         <Link className="text-md" to='/'><CiHeart/></Link>
+         <Link className="text-md" to='/'><LuShoppingCart/></Link>
+         <Link className="text-md" to='/'><CiUser/></Link>
+
+          
+         
+         
+
+      </div>
   </div>
 </div>
     </div>
