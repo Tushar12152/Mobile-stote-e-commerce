@@ -37,6 +37,8 @@ const Login = () => {
     
     <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <p className="font-bold py-2 text-xl text-center">Login from here</p>
+             <img className="w-[50%] mx-auto" src= {!visible? "https://i.ibb.co/cTmLJQf/download.jpg":"https://i.ibb.co/Qb5f5kK/download.jpg"} alt="" />
+
       <form onSubmit={handleLogin} className="card-body">
         <div className="form-control">
           <label className="label">
