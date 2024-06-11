@@ -1,8 +1,14 @@
 import { Link } from "react-router-dom"
+import { LuEye } from "react-icons/lu";
+import { useState } from "react";
+import { GoEyeClosed } from "react-icons/go";
+
 
 
 const Login = () => {
 
+   const [visible,setVisible]=useState(true)
+//    console.log(visible)
 
     const handleLogin=(e)=>{
          e.preventDefault()
@@ -42,9 +48,13 @@ const Login = () => {
           <label className="label">
             <span className="label-text">Password</span>
           </label>
-          <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+               <div className="relative">
+                      <input type={visible?"password": "text"} name="password" placeholder="password" className="input input-bordered" required />
+                        <span onClick={()=>setVisible(!visible)} className="absolute top-4 right-5 cursor-pointer">  {visible? <LuEye/>:<GoEyeClosed/>} </span>
+               </div>
           <label className="label">
             <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+             
           </label>
 
              <p className="label-text-alt ">Do not have an account? Please <Link className="text-red-500" to='/register'> Register </Link></p>
