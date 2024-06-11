@@ -5,6 +5,8 @@ import About from "../Components/About"
 import Shop from "../Components/Shop"
 import Blog from "../Components/Blog"
 import Contact from "../Components/Contact"
+import Register from "../Components/Register"
+import Login from "../Components/Login"
 
 
 
@@ -34,6 +36,15 @@ const Router = createBrowserRouter([
                 element: <Contact/>
             },
         ]
+    },
+
+    {
+        path:'/register',
+        element:<Register/>
+    },
+    {
+        path:'/login',
+        element:<Login/>
     }
 ])
 

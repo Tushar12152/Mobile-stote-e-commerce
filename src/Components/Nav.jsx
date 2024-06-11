@@ -55,7 +55,7 @@ const Nav = () => {
          <Link className="text-md" to='/'><IoIosSearch/></Link>
          <Link className="text-md" to='/'><CiHeart/></Link>
          <Link className="text-md" to='/'><LuShoppingCart/></Link>
-         <Link className="text-md" to='/'><CiUser/></Link>
+         <Link className="text-md" to='/login'><CiUser/></Link>
 
           
          
