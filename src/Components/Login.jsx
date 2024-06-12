@@ -2,13 +2,15 @@ import { Link } from "react-router-dom"
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 import { GoEyeClosed } from "react-icons/go";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 
 const Login = () => {
 
    const [visible,setVisible]=useState(true)
-//    console.log(visible)
+   const{login,user,loading}=useAuth()
 
     const handleLogin=(e)=>{
          e.preventDefault()
@@ -18,11 +20,18 @@ const Login = () => {
          const email=form.email.value;
          const password= form.password.value;
 
-         console.log(email, password)
+        //  console.log(email, password)
+        login(email,password)
+        .then(res=>{
+             console.log(res.user)
+             toast.success('Login confirmed')
+        })
 
 
     }
 
+
+    console.log("ff",user)
 
 
   return (
@@ -63,7 +72,7 @@ const Login = () => {
 
         </div>
         <div className="form-control mt-6">
-          <button className="btn bg-red-500 text-white">Login</button>
+          <button className="btn bg-red-500 text-white">{loading?<span className="loading loading-dots loading-xs"></span>: "Log In"}</button>
         </div>
       </form>
     </div>
