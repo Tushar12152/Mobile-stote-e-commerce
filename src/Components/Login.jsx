@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import { LuEye } from "react-icons/lu";
 import { useState } from "react";
 import { GoEyeClosed } from "react-icons/go";
@@ -9,6 +9,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
 
+  const navigate=useNavigate()
    const [visible,setVisible]=useState(true)
    const{login,user,loading}=useAuth()
 
@@ -25,6 +26,7 @@ const Login = () => {
         .then(res=>{
              console.log(res.user)
              toast.success('Login confirmed')
+             navigate('/dashboard')
         })
 
 

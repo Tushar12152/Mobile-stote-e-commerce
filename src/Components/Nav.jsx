@@ -3,10 +3,12 @@ import { IoIosSearch } from "react-icons/io";
 import { CiHeart } from "react-icons/ci";
 import { LuShoppingCart } from "react-icons/lu";
 import { CiUser } from "react-icons/ci";
+import useAuth from "../Hooks/useAuth";
 
 
 const Nav = () => {
 
+    const {user}=useAuth()
 
 
      const NavMenu= <div className="flex gap-4">
@@ -55,7 +57,7 @@ const Nav = () => {
          <Link className="text-md" to='/'><IoIosSearch/></Link>
          <Link className="text-md" to='/'><CiHeart/></Link>
          <Link className="text-md" to='/'><LuShoppingCart/></Link>
-         <Link className="text-md" to='/login'><CiUser/></Link>
+         <Link className="text-md" to={user?'/dashboard':'/login'}><CiUser/></Link>
 
           
          
