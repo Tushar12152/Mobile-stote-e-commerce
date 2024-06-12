@@ -1,13 +1,17 @@
 import { useState } from "react";
 import { GoEyeClosed } from "react-icons/go";
 import { LuEye } from "react-icons/lu";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const Register = () => {
-
+    const {createUser,loading,logout,}=useAuth()
     const [visible,setVisible]=useState(true)
-    //    console.log(visible)
+    const navigate=useNavigate()
+    
+   
     
         const handleRegister=(e)=>{
              e.preventDefault()
@@ -17,10 +21,29 @@ const Register = () => {
              const email=form.email.value;
              const password= form.password.value;
     
-             console.log(email, password)
+            //  console.log(email, password)
+
+             createUser(email,password)
+             .then(res=>{
+              // console.log(res.user)
+                 if(res.user){
+                  logout()
+                   .then(()=>{
+                      toast.success('registration complete Please login.')
+                       navigate('/login')
+
+                   })
+                
+                  
+                 }    
+
+
+             })
     
     
         }
+
+      
 
   return (
     <div>
@@ -48,7 +71,7 @@ const Register = () => {
                 <span className="label-text">Password</span>
               </label>
                    <div className="relative">
-                          <input type={visible?"password": "text"} name="password" placeholder="password" className="input input-bordered" required />
+                          <input type={visible?"password": "text"} name="password" placeholder="password" className="input input-bordered w-full" required />
                             <span onClick={()=>setVisible(!visible)} className="absolute top-4 right-5 cursor-pointer">  {visible? <LuEye/>:<GoEyeClosed/>} </span>
                    </div>
               <label className="label">
@@ -60,7 +83,7 @@ const Register = () => {
     
             </div>
             <div className="form-control mt-6">
-              <button className="btn bg-red-500 text-white">Login</button>
+              <button className="btn bg-red-500 text-white">{loading? <span className="loading loading-dots loading-xs"></span> :'Register Now'}</button>
             </div>
           </form>
         </div>

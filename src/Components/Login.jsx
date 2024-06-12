@@ -51,7 +51,7 @@ const Login = () => {
             <span className="label-text">Password</span>
           </label>
                <div className="relative">
-                      <input type={visible?"password": "text"} name="password" placeholder="password" className="input input-bordered" required />
+                      <input type={visible?"password": "text"} name="password" placeholder="password" className="input input-bordered w-full" required />
                         <span onClick={()=>setVisible(!visible)} className="absolute top-4 right-5 cursor-pointer">  {visible? <LuEye/>:<GoEyeClosed/>} </span>
                </div>
           <label className="label">
