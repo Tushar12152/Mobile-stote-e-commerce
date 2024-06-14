@@ -1,18 +1,45 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom"
 import useAuth from "../../Hooks/useAuth"
 import toast from "react-hot-toast"
+import { FaSignOutAlt } from "react-icons/fa";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 
 
 const Dashboard = () => {
 
 const{logout}=useAuth()
 const navigate=useNavigate()
+const axiosSecure=useAxiosSecure()
+const {user}= useAuth()
 
 const handleSignOut=()=>{
     logout()
     toast.success('Sign Out')
     navigate('/')
 }
+
+
+const { data: users = [] } = useQuery({
+    queryKey: ['user'],
+    queryFn: async () => {
+      const res = await axiosSecure.get('/users');
+      return res.data;
+    },
+  });
+
+//   console.log(user?.email)
+
+
+  const Adminsinfo= users.find(user=>user.role==="admin")
+
+//   console.log(Adminsinfo?.email)
+
+  const Admin= Adminsinfo?.email===user?.email;
+
+  console.log(Admin)
+
+
 
 
   return (
@@ -22,42 +49,50 @@ const handleSignOut=()=>{
              <div className="col-span-5 md:col-span-3  min-h-screen bg-[#0000004d] text-white">
                  <ul className="menu p-4">
                      
-                        <div>
-                             <li>
-                                 <NavLink to="/dashboard/Profile">
-                             
-                                    .</NavLink>
-                             </li>
-                             <li>
-                                 <NavLink to="/dashboard/createTask">
-                             
-                                 . </NavLink>
-                             </li>
-                             <li>
-                                 <NavLink to="/dashboard/todo">
-                             
-                                 .</NavLink>
-                             </li>
- 
- 
-                             <li>
-                                 <NavLink to="/dashboard/previous">
-                                     
-                                 .</NavLink>
-                             </li>
-                             
-                             <li>
-                                 <NavLink to="/dashboard/ongoing">
-                                            
-                                 .</NavLink>
-                             </li>
-                             <li>
-                                 <NavLink to="/dashboard/complete">
-                                 
-                                . </NavLink>
-                             </li>
+                      {
+                        !Admin?  <div>
+                        <li>
+                            <NavLink to="/dashboard/Profile">
+                        
+                               .</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dashboard/createTask">
+                        
+                            . </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dashboard/todo">
+                        
+                            .</NavLink>
+                        </li>
+
+
+                        <li>
+                            <NavLink to="/dashboard/previous">
+                                
+                            .</NavLink>
+                        </li>
+                        
+                        <li>
+                            <NavLink to="/dashboard/ongoing">
+                                       
+                            .</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/dashboard/complete">
                             
-                         </div>
+                           . </NavLink>
+                        </li>
+                       
+                    </div>
+                    
+                    :
+
+                       <div>
+                            ADMIN
+                       </div>
+                      }
                             
                   
  
@@ -74,7 +109,7 @@ const handleSignOut=()=>{
                      <li>
                          <a  onClick={handleSignOut}>
                            
-                             Sign Out</a>
+                             Sign Out <FaSignOutAlt/></a>
                      </li>
                     
                  </ul>

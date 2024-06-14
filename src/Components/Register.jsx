@@ -4,13 +4,14 @@ import { LuEye } from "react-icons/lu";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import toast from "react-hot-toast";
+import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 
 const Register = () => {
     const {createUser,loading,logout,}=useAuth()
     const [visible,setVisible]=useState(true)
     const navigate=useNavigate()
-    
+    const axiosSecure=useAxiosSecure()
    
     
         const handleRegister=(e)=>{
@@ -20,6 +21,10 @@ const Register = () => {
     
              const email=form.email.value;
              const password= form.password.value;
+
+             const user={email,password,role:'user'}
+
+
     
             //  console.log(email, password)
 
@@ -27,21 +32,20 @@ const Register = () => {
              .then(res=>{
               // console.log(res.user)
                  if(res.user){
-                  logout()
-                   .then(()=>{
-                      toast.success('registration complete Please login.')
-                       navigate('/login')
-
-                   })
-                
-                  
-                 }    
-
-
+                  axiosSecure.post('/users',user)
+                  .then(data=>{
+                    console.log(data.data)
+                    if(data.data.acknowledged){
+                      logout()
+                      .then(()=>{
+                         toast.success('registration complete Please login.')
+                          navigate('/login')
+                      })
+                    }
+                  })
+                }    
              })
-    
-    
-        }
+          }
 
       
 
