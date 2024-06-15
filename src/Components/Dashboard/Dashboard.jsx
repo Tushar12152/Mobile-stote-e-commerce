@@ -29,15 +29,15 @@ const { data: users = [] } = useQuery({
   });
 
 //   console.log(user?.email)
+// console.log(users)
 
+  const Adminsinfo= users?.find(user=>user?.role==="admin")
 
-  const Adminsinfo= users.find(user=>user.role==="admin")
-
-//   console.log(Adminsinfo?.email)
+  // console.log(Adminsinfo?.email)
 
   const Admin= Adminsinfo?.email===user?.email;
 
-//   console.log(Admin)
+  // console.log(Admin)
 
 
 
