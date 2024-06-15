@@ -4,7 +4,7 @@ import bannerBg from "../assets/banner-bg.png"
 
 const Banner = () => {
   return (
-    <div className="bg-[#0000004d]">
+    <div className="bg-[#0000004d] pt-10">
       <div className="flex  items-center gap-10 justify-center ">
       <img className="w-[40%] " src={bannerImage} alt="" />
 

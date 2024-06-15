@@ -26,7 +26,7 @@ const Nav = () => {
 
   return (
     <div>
-        <div className="navbar bg-base-100">
+        <div className="navbar fixed w-[95%] z-10">
   <div className="navbar-start">
 
 

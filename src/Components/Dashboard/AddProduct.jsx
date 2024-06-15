@@ -25,13 +25,13 @@ const AddProduct = () => {
             const product = { ...data, Category: category, imageUrl: image };
       
 
-               console.log(product)
+            //    console.log(product)
 
-            // const res = await axiosSecure.post('/products', product);
-            // if (res?.data?.insertedId) {
-            //   toast.success("Wow!", "Your mobile is succesfully uploaded", "success");
-            //   reset();
-            // }
+            const res = await axiosSecure.post('/products', product);
+            if (res?.data?.insertedId) {
+              toast.success("Your mobile is succesfully uploaded");
+              reset();
+            }
           } catch (error) {
             console.error('Error upload img', error);
           }
@@ -42,7 +42,12 @@ const AddProduct = () => {
 
   return (
     <div>
-         <form onSubmit={handleSubmit(onSubmit)}>
+
+
+             <h1 className="font-bold text-2xl text-center py-5 border-b-2 w-[20%] mx-auto">Upload Mobile</h1>
+
+
+         <form className="mt-5" onSubmit={handleSubmit(onSubmit)}>
         
         <div className="lg:flex gap-4">
         <div className="form-control w-[50%]">
@@ -144,14 +149,14 @@ const AddProduct = () => {
             
             <label htmlFor="selectOption">Brand</label>
         <select className="input input-bordered" id="category" name="category" value={category} onChange={handleSelectChange}>
-          <option value="breakfast">samsung</option>
-          <option value="lunch">apple</option>
-          <option value="dinner">vivo</option>
-          <option value="dinner">oppo</option>
-          <option value="dinner">realme</option>
-          <option value="dinner">redme</option>
-          <option value="dinner">howay</option>
-          <option value="dinner">infinix</option>
+          <option value="samsung">samsung</option>
+          <option value="apple">apple</option>
+          <option value="vivo">vivo</option>
+          <option value="oppo">oppo</option>
+          <option value="realme">realme</option>
+          <option value="redme">redme</option>
+          <option value="howay">howay</option>
+          <option value="infinix">infinix</option>
       
         </select>
           </div>
