@@ -16,11 +16,7 @@ const Nav = () => {
         <NavLink to="/shop" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-500 font-bold text-md" : "font-bold text-md" }>Shop</NavLink>
         <NavLink to="/about" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-500 font-bold text-md" : "font-bold text-md" }>About</NavLink>
         <NavLink to="/blog" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-500 font-bold text-md" : "font-bold text-md" }>Blog</NavLink>
-        <NavLink to="/contact" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-500 font-bold text-md" : "font-bold text-md" }>Contact</NavLink>
-     
-                 
-                 
-            
+        <NavLink to="/contact" className={({ isActive, isPending }) => isPending ? "pending" : isActive ? "text-red-500 font-bold text-md" : "font-bold text-md" }>Contact</NavLink>           
      </div>
 
 

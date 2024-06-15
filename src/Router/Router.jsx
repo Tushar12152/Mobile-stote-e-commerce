@@ -10,6 +10,7 @@ import Login from "../Components/Login"
 import Dashboard from "../Components/Dashboard/Dashboard"
 import AddProduct from "../Components/Dashboard/AddProduct"
 import AllProducts from "../Components/Dashboard/AllProducts"
+import ProductDetails from "../Components/ProductDetails"
 
 
 
@@ -37,6 +38,11 @@ const Router = createBrowserRouter([
             {
                 path:'/contact',
                 element: <Contact/>
+            },
+            {
+                path:`details/:id`,
+                element: <ProductDetails/>,
+                loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
             },
         ]
     },
