@@ -37,7 +37,7 @@ const { data: users = [] } = useQuery({
 
   const Admin= Adminsinfo?.email===user?.email;
 
-  console.log(Admin)
+//   console.log(Admin)
 
 
 
@@ -90,7 +90,21 @@ const { data: users = [] } = useQuery({
                     :
 
                        <div>
-                            ADMIN
+                           <li>
+                            <NavLink to="/dashboard/adminProfile">
+                             Admin Profile           
+                            </NavLink>
+                        </li>
+                           <li>
+                            <NavLink to="/dashboard/addProduct">
+                             Add Product          
+                            </NavLink>
+                        </li>
+                           <li>
+                            <NavLink to="/dashboard/allProduct">
+                              All Products          
+                            </NavLink>
+                        </li>
                        </div>
                       }
                             

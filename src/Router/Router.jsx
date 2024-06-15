@@ -8,6 +8,8 @@ import Contact from "../Components/Contact"
 import Register from "../Components/Register"
 import Login from "../Components/Login"
 import Dashboard from "../Components/Dashboard/Dashboard"
+import AddProduct from "../Components/Dashboard/AddProduct"
+import AllProducts from "../Components/Dashboard/AllProducts"
 
 
 
@@ -49,7 +51,17 @@ const Router = createBrowserRouter([
     },
     {
         path:'/dashboard',
-        element:<Dashboard/>
+        element:<Dashboard/>,
+        children:[
+            {
+                path:'/dashboard/addProduct',
+                element:<AddProduct/>
+            },
+            {
+                path:'/dashboard/allProduct',
+                element:<AllProducts/>
+            },
+        ]
     }
 ])
 
