@@ -21,7 +21,16 @@ const Shop = () => {
     },
   });
 
-  // console.log(products)
+  console.log(products)
+
+  const apple = products?.filter(product => product?.Category === 'apple')
+  const infinix = products?.filter(product => product?.Category === 'infinix')
+  const samsung = products?.filter(product => product?.Category === 'samsung')
+  const redme = products?.filter(product => product?.Category === 'redme')
+  const realme = products?.filter(product => product?.Category === 'realme')
+  const oppo = products?.filter(product => product?.Category === 'oppo')
+  const vivo = products?.filter(product => product?.Category === 'vivo')
+  const howawya = products?.filter(product => product?.Category === 'howaya')
 
 
 
@@ -66,41 +75,109 @@ const Shop = () => {
           <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
 
             {
-              products.map(product => <ProductCart key={product._id} product={product} />)
+              products ?
+                products.map(product => <ProductCart key={product._id} product={product} />) :
+                <h1>Not available</h1>
             }
           </div>
         </TabPanel>
 
         <TabPanel>
           <h2>Apple</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              apple ?
+                apple.map(product => <ProductCart key={product._id} product={product} />) :
+                <h1>Not available</h1>
+            }
+          </div>
         </TabPanel>
 
         <TabPanel>
           <h2>Samsung</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              samsung ?
+                samsung.map(product => <ProductCart key={product._id} product={product} />) :
+                <h1>Not available</h1>
+            }
+          </div>
+
         </TabPanel>
 
         <TabPanel>
           <h2>VIVO</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              vivo ?
+                vivo.map(product => <ProductCart key={product._id} product={product} />) :
+                <h1>Not available</h1>
+            }
+          </div>
+
         </TabPanel>
 
         <TabPanel>
           <h2>Infinix</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              infinix?
+              infinix.map(product => <ProductCart key={product._id} product={product} />):
+              <h1>Not available</h1>
+            }
+          </div>
         </TabPanel>
 
         <TabPanel>
           <h2>Realme</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              realme?
+              realme.map(product => <ProductCart key={product._id} product={product} />):
+              <h1>Not available</h1>
+            }
+          </div>
         </TabPanel>
 
         <TabPanel>
           <h2>Redme</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              redme?
+              redme.map(product => <ProductCart key={product._id} product={product} />):
+              <h1 >Not available</h1>
+            }
+          </div>
         </TabPanel>
 
         <TabPanel>
           <h2>Howaway</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              howawya?
+              (howawya.map(product => <ProductCart key={product._id} product={product} />)):
+              (<h1 className="text-center font-bold text-2xl">Not available</h1> )
+            }
+          </div>
         </TabPanel>
 
         <TabPanel>
           <h2>OPPO</h2>
+          <div className="mt-10 grid grid-cols-1 gap-6 md: grid-cols-2 lg:grid-cols-3">
+
+            {
+              oppo?
+              oppo.map(product => <ProductCart key={product._id} product={product} />):
+              <h1>Not available</h1>
+            }
+          </div>
         </TabPanel>
 
       </Tabs>
