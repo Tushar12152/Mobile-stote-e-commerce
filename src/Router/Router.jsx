@@ -42,12 +42,12 @@ const Router = createBrowserRouter([
             {
                 path:`details/:id`,
                 element: <ProductDetails/>,
-                loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
+                loader:({params})=>fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             },
             {
                 path:`shop/details/:id`,
                 element: <ProductDetails/>,
-                loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
+                loader:({params})=>fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             },
         ]
     },
