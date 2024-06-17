@@ -11,7 +11,7 @@ const Home = () => {
         
          <div>
             <Shop/>
-            <Link className="flex items-center justify-center" to='/shop'><button className="btn bg-[#0000004d]">View All</button></Link>
+            <Link className="flex items-center justify-center mt-10" to='/shop'><button className="btn bg-[#0000004d]">View All</button></Link>
             <Quality/>
          </div>
 

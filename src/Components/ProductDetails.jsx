@@ -1,11 +1,43 @@
 
 import { Link, useLoaderData } from 'react-router-dom'
+import useAuth from '../Hooks/useAuth';
+import useAxiosSecure from '../Hooks/useAxiosSecure';
+import toast from 'react-hot-toast';
+
 
 const ProductDetails = () => {
   const product = useLoaderData()
   const { Bettery, Camara, Category, Display, Name, Ram, Status, Storage, price } = product;
+  const {user}=useAuth()
+  const addedBy=user?.email;
+  const axiosSecure=useAxiosSecure()
+
 
   // console.log(product)
+
+    const handleAddToCart=(product)=>{
+      const { Bettery, Camara, Category, Display, Name, Ram, Status, Storage, price, imageUrl } = product;
+
+           const addItem={ Bettery, Camara, Category, Display, Name, Ram, Status, Storage, price, addedBy, imageUrl}
+          //  console.log(addItem)
+
+           axiosSecure.post('/addCartProducts',addItem)
+           .then(res=>{
+               if(res.data.acknowledged){
+                toast.success('completely added to cart')
+                  
+               }
+           })
+
+
+
+    }
+
+
+
+
+
+
   return (
     <div className='pt-20'>
       <div className='h-12 bg-[#0000004d] flex justify-center items-center'>
@@ -35,7 +67,7 @@ const ProductDetails = () => {
           <h2 className={`font-semi-bold text-lg text-left mb-2 border-b-2 w-[50%] `}>Status: <span className={`${Status === "available" ? 'text-green-400' : "text-red-500"}`}>{Status}</span></h2>
 
           <div className='mt-4'>
-            <button className={`btn bg-[#0000004d] ${Status === 'available' ? 'enabled' : 'btn-disabled cursor-none'}`}>Add To Cart</button>
+            <button onClick={()=>handleAddToCart(product)} className={`btn bg-[#0000004d] ${Status === 'available' ? 'enabled' : 'btn-disabled cursor-none'}`}>Add To Cart</button>
           </div>
         </div>
       </div>
