@@ -62,7 +62,7 @@
     border-width: 2px;
     border-style: solid;
     border-radius: 0.5rem;
-    animation: borderAnimation 3s infinite;
+    animation: borderAnimation 9s infinite;
     position: relative;
   }
   
@@ -73,6 +73,6 @@
     height: 10px;
     background-color: #ff6b6b;
     border-radius: 50%;
-    animation: pointAnimation 3s linear infinite;
+    animation: pointAnimation 9s linear infinite;
   }
   
