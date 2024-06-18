@@ -22,8 +22,10 @@ const Nav = () => {
 
 
   return (
-    <div>
-        <div className="navbar fixed w-[95%] mx-auto z-10">
+    <div className=" ">
+        <div className="navbar  shadow-xl p-2 fixed  mx-auto z-10 ">
+
+
   <div className="navbar-start">
 
 
@@ -44,11 +46,13 @@ const Nav = () => {
     <a className=" text-xl font-bold ">Mobile Store</a>
     
   </div>
+
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
      {NavMenu}
     </ul>
   </div>
+
   <div className="navbar-end">
       <div className=" flex gap-4">
          <Link className="text-md" to='/'><IoIosSearch/></Link>
@@ -62,6 +66,8 @@ const Nav = () => {
 
       </div>
   </div>
+  
+    
 </div>
     </div>
   )

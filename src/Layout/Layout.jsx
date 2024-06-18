@@ -7,7 +7,7 @@ const Layout = () => {
   return (
     <div>
         
-        <div className="w-[95%] mx-auto">
+        <div className=" mx-auto">
         <Nav/>     
         </div>
         <Outlet/>
