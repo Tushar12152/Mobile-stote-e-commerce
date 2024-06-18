@@ -11,66 +11,71 @@ import Dashboard from "../Components/Dashboard/Dashboard"
 import AddProduct from "../Components/Dashboard/AddProduct"
 import AllProducts from "../Components/Dashboard/AllProducts"
 import ProductDetails from "../Components/ProductDetails"
+import PrivateRoute from "./PrivateRoute"
 
 
 
 const Router = createBrowserRouter([
     {
-        path:'/',
-        element:<Layout/>,
-        children:[
+        path: '/',
+        element: <Layout />,
+        children: [
             {
-                path:'/',
-                element:<Home/>
+                path: '/',
+                element: <Home />
             },
             {
-                path:'/about',
-                element: <About/>
+                path: '/about',
+                element: <About />
             },
             {
-                path:'/shop',
-                element: <Shop/>
+                path: '/shop',
+                element: <Shop />
             },
             {
-                path:'/blog',
-                element: <Blog/>
+                path: '/blog',
+                element: <Blog />
             },
             {
-                path:'/contact',
-                element: <Contact/>
+                path: '/contact',
+                element: <Contact />
             },
             {
-                path:`details/:id`,
-                element: <ProductDetails/>,
-                loader:({params})=>fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
+                path: `details/:id`,
+                element: <PrivateRoute>
+                    <ProductDetails />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
             },
             {
-                path:`shop/details/:id`,
-                element: <ProductDetails/>,
-                loader:({params})=>fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
+                path: `shop/details/:id`,
+                element: <PrivateRoute>
+                    <ProductDetails />
+                </PrivateRoute>,
+                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
             },
         ]
     },
 
     {
-        path:'/register',
-        element:<Register/>
+        path: '/register',
+        element: <Register />
     },
     {
-        path:'/login',
-        element:<Login/>
+        path: '/login',
+        element: <Login />
     },
     {
-        path:'/dashboard',
-        element:<Dashboard/>,
-        children:[
+        path: '/dashboard',
+        element: <Dashboard />,
+        children: [
             {
-                path:'/dashboard/addProduct',
-                element:<AddProduct/>
+                path: '/dashboard/addProduct',
+                element: <AddProduct />
             },
             {
-                path:'/dashboard/allProduct',
-                element:<AllProducts/>
+                path: '/dashboard/allProduct',
+                element: <AllProducts />
             },
         ]
     }

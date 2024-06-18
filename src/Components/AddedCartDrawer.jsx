@@ -46,10 +46,6 @@ const AddedCartDrawer = () => {
 
   }
 
-
-
-
-
   return (
     <div>
       <div className="drawer drawer-end">
@@ -58,7 +54,7 @@ const AddedCartDrawer = () => {
           {/* Page content here */}
           <label htmlFor="my-drawer-4" className="drawer-button ">
             <div className="indicator">
-              <span className="indicator-item badge bg-[rgba(179,176,176,0.3)] text-sm">{specificUserscart?.length}</span>
+              <span className="indicator-item badge bg-red-500 text-white text-sm">{specificUserscart?.length}</span>
 
               <button className="text-lg"><LuShoppingCart /></button>
             </div>
