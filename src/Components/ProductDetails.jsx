@@ -39,7 +39,7 @@ const ProductDetails = () => {
 
 
   return (
-    <div className='pt-20'>
+    <div className='pt-32'>
       <div className='h-12 bg-[#0000004d] flex justify-center items-center'>
         <Link to='/'>Home  ➤➤ </Link>
         <Link to='/SHOP'>kIDS  ➤➤ </Link>

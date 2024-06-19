@@ -69,10 +69,10 @@ const AddedCartDrawer = () => {
             {/* Sidebar content here */}
 
             <div className="h-[calc(100vh-200px)] ">
-              {specificUserscart.map(cart => <div className="relative " key={cart._id}>
+              {specificUserscart.map(cart => <div className="relative z-10" key={cart._id}>
 
 
-                <button onClick={() => handleRemove(cart?._id)} className="absolute top-5 right-3"><RxCross2 /></button>
+                <button onClick={() => handleRemove(cart?._id)} className="absolute top-10 right-3 z-10"><RxCross2 /></button>
 
                 <div className=" bg-base-200 shadow-xl flex justify-between items-center mb-2">
                   <div className="hero-content flex-col lg:flex-row">
