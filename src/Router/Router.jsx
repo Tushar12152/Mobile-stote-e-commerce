@@ -12,6 +12,8 @@ import AddProduct from "../Components/Dashboard/AddProduct"
 import AllProducts from "../Components/Dashboard/AllProducts"
 import ProductDetails from "../Components/ProductDetails"
 import PrivateRoute from "./PrivateRoute"
+import UserProfile from "../Components/Dashboard/UserProfile"
+import Checkout from "../Components/Checkout"
 
 
 
@@ -47,26 +49,31 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             },
             {
                 path: `shop/details/:id`,
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
+            },
+            {
+                path:'/checkout',
+                element:<Checkout/>
+            },
+            {
+                path: '/register',
+                element: <Register />
+            },
+            {
+                path: '/login',
+                element: <Login />
             },
         ]
     },
 
-    {
-        path: '/register',
-        element: <Register />
-    },
-    {
-        path: '/login',
-        element: <Login />
-    },
+    
     {
         path: '/dashboard',
         element: <Dashboard />,
@@ -78,6 +85,10 @@ const Router = createBrowserRouter([
             {
                 path: '/dashboard/allProduct',
                 element: <AllProducts />
+            },
+            {
+                path: '/dashboard/Profile',
+                element: <UserProfile />
             },
         ]
     }

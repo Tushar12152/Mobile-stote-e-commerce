@@ -23,7 +23,7 @@ const Nav = () => {
 
   return (
     <div className=" ">
-        <div className="navbar  shadow-xl p-2 fixed  mx-auto z-10 ">
+        <div className="navbar  shadow-xl py-8 fixed   mx-auto z-10 ">
 
 
   <div className="navbar-start">
@@ -43,7 +43,7 @@ const Nav = () => {
 
     </div>
 
-    <a className=" text-xl font-bold ">Mobile Store</a>
+    <a href="/" className=" text-xl font-bold ">Mobile Store</a>
     
   </div>
 

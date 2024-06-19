@@ -94,7 +94,7 @@ const AddedCartDrawer = () => {
 
                  <div className="flex justify-around mt-12">
                     <Link to='/shop' className="btn bg-[rgba(179,176,176,0.3)] ">Shop</Link>
-                    <Link to='/' className="btn bg-[rgba(201,103,103,0.3)] ">Checkout</Link>
+                    <Link to='/checkout' className="btn bg-[rgba(201,103,103,0.3)] ">Checkout</Link>
                     
                  </div>
 

@@ -54,36 +54,9 @@ const { data: users = [] } = useQuery({
                         <li>
                             <NavLink to="/dashboard/Profile">
                         
-                               .</NavLink>
+                               Profile</NavLink>
                         </li>
-                        <li>
-                            <NavLink to="/dashboard/createTask">
-                        
-                            . </NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/todo">
-                        
-                            .</NavLink>
-                        </li>
-
-
-                        <li>
-                            <NavLink to="/dashboard/previous">
-                                
-                            .</NavLink>
-                        </li>
-                        
-                        <li>
-                            <NavLink to="/dashboard/ongoing">
-                                       
-                            .</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/dashboard/complete">
-                            
-                           . </NavLink>
-                        </li>
+                       
                        
                     </div>
                     

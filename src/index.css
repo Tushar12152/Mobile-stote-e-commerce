@@ -59,20 +59,20 @@
   }
   
   .animated-border {
-    border-width: 2px;
+    border-width: 10px;
     border-style: solid;
     border-radius: 0.5rem;
-    animation: borderAnimation 9s infinite;
+    animation: borderAnimation 20s infinite;
     position: relative;
   }
   
   .animated-border::before {
     content: '';
     position: absolute;
-    width: 10px;
-    height: 10px;
+    width: 20px;
+    height: 20px;
     background-color: #ff6b6b;
     border-radius: 50%;
-    animation: pointAnimation 9s linear infinite;
+    animation: pointAnimation 20s linear infinite;
   }
   
