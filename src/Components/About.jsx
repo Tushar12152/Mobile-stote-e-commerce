@@ -6,6 +6,28 @@ import cr1 from '../assets/cr1.jpg'
 import cr2 from '../assets/cr-2.jpg'
 
 const About = () => {
+
+
+  const teamMembers = [
+    {
+      name: 'Jack Holland',
+      image: 'https://i.ibb.co/Q9gGF4Y/t1.jpg', 
+    },
+    {
+      name: 'Clara Morgan',
+      image: 'https://i.ibb.co/nn0Zz4v/t2.jpg',
+    },
+    {
+      name: 'Dante Basco',
+      image: 'https://i.ibb.co/YW6ftDM/t3.jpg',
+    },
+    {
+      name: 'Sonia Elsie',
+      image: 'https://i.ibb.co/2SX0hmb/t4.jpg',
+    },
+  ];
+
+
   return (
     <div>
          {/* AboutBanner */}
@@ -122,9 +144,25 @@ const About = () => {
 </div>
            </div>
 
+         {/* ourTeam */}
 
 
+
+<div className=" mt-10 w-[80%] mx-auto">
+  <h2 className="text-2xl font-bold mb-8 text-center">Our team</h2>
+    <div className="flex justify-center space-x-6">
+        {teamMembers.map((member, index) => (
+          <div className="relative w-" key={index}>
+            <div className="relative overflow-hidden">
+              <img className="w-full hover:cursor-pointer" src={member.image} alt={member.name} />
+              <div className="absolute inset-0 bg-red-600 opacity-0 hover:opacity-35 transition-opacity duration-300"></div>
+            </div>
+            <p className="mt-4">{member.name}</p>
+          </div>
+        ))}
+      </div>
     </div>
+</div>
   )
 }
 
