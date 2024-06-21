@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom'
 import aboutbg from '../assets/About-bg.jpg'
 import aboutBrand from '../assets/aboutBrand.jpg'
 import whyUs from '../assets/whyus.jpg'
+import cr1 from '../assets/cr1.jpg'
+import cr2 from '../assets/cr-2.jpg'
 
 const About = () => {
   return (
@@ -68,6 +70,59 @@ const About = () => {
             </div>
 
         </div>
+
+
+        {/* carosel */}
+
+           <div className='w-full  mt-10'>
+           <div className="carousel w-full bg-gray-200">
+  <div id="slide1" className="carousel-item relative w-full">
+   
+<div className='w-[80%] mx-auto flex gap-6 items-center justify-center p-5'>
+     <div className='w-[50%]'>
+         <img className='w-[50%] rounded-full' src={cr1} alt="" />
+      </div> 
+     <div className='w-[50%]'>
+        
+        <h1 className="text-7xl text-red-500">”</h1>
+        <p className="text-gray-500 my-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo corporis voluptatum quas recusandae incidunt cum quidem veniam aperiam deleniti delectus.</p>
+        <h1 className="text-semibold text-xl">Gomez</h1>
+        <p className="text-red-500">Customer</p>
+
+     </div>
+</div>
+
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide2" className="btn btn-circle">❮</a> 
+      <a href="#slide2" className="btn btn-circle">❯</a>
+    </div>
+  </div> 
+
+  <div id="slide2" className="carousel-item relative w-full">
+  <div className='w-[80%] mx-auto flex gap-6 items-center justify-center p-5'>
+     <div className='w-[50%]'>
+         <img className='w-[50%] rounded-full' src={cr2} alt="" />
+      </div> 
+     <div className='w-[50%]'>
+        
+        <h1 className="text-7xl text-red-500">”</h1>
+        <p className="text-gray-500 my-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo corporis voluptatum quas recusandae incidunt cum quidem veniam aperiam deleniti delectus.</p>
+        <h1 className="text-semibold text-xl">chase</h1>
+        <p className="text-red-500">Customer</p>
+
+     </div>
+</div>
+    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+      <a href="#slide1" className="btn btn-circle">❮</a> 
+      <a href="#slide1" className="btn btn-circle">❯</a>
+    </div>
+  </div> 
+ 
+  
+</div>
+           </div>
+
+
 
     </div>
   )
