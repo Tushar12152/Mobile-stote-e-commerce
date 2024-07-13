@@ -50,14 +50,14 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             },
             {
                 path: `shop/details/:id`,
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
+                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             },
             {
                 path:'/checkout',
@@ -94,7 +94,7 @@ const Router = createBrowserRouter([
             {
                 path:'/dashboard/update/:id',
                 element:<ProductUpdate/>,
-                loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
+                loader:({params})=>fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
             }
         ]
     }

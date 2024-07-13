@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { useLoaderData } from "react-router-dom";
-// import useAxiosSecure from "../../Hooks/useAxiosSecure";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useForm } from "react-hook-form";
 import { imageUpload } from "../Api/ImageUpload";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const ProductUpdate = () => {
 
     const product= useLoaderData()
     // console.log(product)
     const [category, setCategory] = useState('apple');
-    // const axiosSecure = useAxiosSecure()
+    const axiosSecure = useAxiosSecure()
+    const navigate=useNavigate()
     const handleSelectChange = (event) => {
         setCategory(event.target.value);
     };
@@ -25,12 +26,18 @@ const ProductUpdate = () => {
             const imageUrl = await imageUpload(imageFile);
             const image = imageUrl?.data?.display_url;
 
-            const product = { ...data, Category: category, imageUrl: image };
+            const Updatedproduct = { ...data, Category: category, imageUrl: image };
 
 
                console.log(product)
 
-            
+               const res=await axiosSecure.patch(`/products/${product?._id}`,Updatedproduct)
+               console.log(res.data.modifiedCount);
+               if(res.data.modifiedCount>0){
+                  toast.success('Already updated')
+                  navigate(-1)
+               } 
+       
             
         } catch (error) {
             console.error('Error upload img', error);
