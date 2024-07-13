@@ -3,6 +3,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { MdOutlineUpdate } from "react-icons/md";
 import { MdDelete } from "react-icons/md";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 
@@ -92,7 +93,7 @@ const AllProducts = () => {
                                 </td>
                                 <td>{product?.Ram}</td>
                                 <th>
-                                    <button className="btn btn-ghost btn-xs"><span className="text-xl"><MdOutlineUpdate /></span></button>
+                                    <Link to={`/dashboard/update/${product?._id}`} className="btn btn-ghost btn-xs"><span className="text-xl"><MdOutlineUpdate /></span></Link>
                                 </th>
                                 <th>
                                     <button onClick={() => handleDelete(product?._id)} className="btn btn-ghost btn-xs"><span className="text-xl"><MdDelete /></span></button>

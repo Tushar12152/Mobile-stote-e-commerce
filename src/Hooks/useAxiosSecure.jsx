@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosSecure = axios.create({
-  baseURL: 'https://mobile-store-server-khaki.vercel.app/',
+  baseURL: 'http://localhost:5001/',
  
 });
 

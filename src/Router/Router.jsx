@@ -14,6 +14,7 @@ import ProductDetails from "../Components/ProductDetails"
 import PrivateRoute from "./PrivateRoute"
 import UserProfile from "../Components/Dashboard/UserProfile"
 import Checkout from "../Components/Checkout"
+import ProductUpdate from "../Components/Dashboard/ProductUpdate"
 
 
 
@@ -49,14 +50,14 @@ const Router = createBrowserRouter([
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
             },
             {
                 path: `shop/details/:id`,
                 element: <PrivateRoute>
                     <ProductDetails />
                 </PrivateRoute>,
-                loader: ({ params }) => fetch(`https://mobile-store-server-khaki.vercel.app/products/${params.id}`)
+                loader: ({ params }) => fetch(`http://localhost:5001/products/${params.id}`)
             },
             {
                 path:'/checkout',
@@ -90,6 +91,11 @@ const Router = createBrowserRouter([
                 path: '/dashboard/Profile',
                 element: <UserProfile />
             },
+            {
+                path:'/dashboard/update/:id',
+                element:<ProductUpdate/>,
+                loader:({params})=>fetch(`http://localhost:5001/products/${params.id}`)
+            }
         ]
     }
 ])

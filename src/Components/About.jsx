@@ -6,9 +6,7 @@ import cr1 from '../assets/cr1.jpg'
 import cr2 from '../assets/cr-2.jpg'
 
 const About = () => {
-
-
-  const teamMembers = [
+ const teamMembers = [
     {
       name: 'Jack Holland',
       image: 'https://i.ibb.co/Q9gGF4Y/t1.jpg', 
@@ -25,7 +23,8 @@ const About = () => {
       name: 'Sonia Elsie',
       image: 'https://i.ibb.co/2SX0hmb/t4.jpg',
     },
-  ];
+  ]
+
 
 
   return (
@@ -35,10 +34,10 @@ const About = () => {
       <img src={aboutbg} alt="" />
 
       <div className="h-24  bg-transparent  absolute top-40 right-[900px] text-white">
-        <h1 className="text-center font-bold text-2xl pt-4">CHECKOUT</h1>
+        <h1 className="text-center font-bold text-2xl pt-4">About Us</h1>
         <div className='flex justify-center items-center'>
           <Link to='/'>Home  ➤➤ </Link>
-          <Link to='/about'>About</Link>
+          <Link to='/about'>Blog</Link>
         </div>
       </div>
       </div>
@@ -145,7 +144,6 @@ const About = () => {
            </div>
 
          {/* ourTeam */}
-
 
 
 <div className=" mt-10 w-[80%] mx-auto">
